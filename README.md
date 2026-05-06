@@ -92,8 +92,8 @@ System returns: synthpop, dance pop, EDM with affinity scores and explanation.
 
 ## My project in action
 ### Gemini's Music Affinity evaluation
-<img width="1854" height="872" alt="Screenshot 2026-05-06 093429" src="https://github.com/user-attachments/assets/7a0bbf2e-062a-442c-a274-ac95df254a8a" />
+<img width="1850" height="879" alt="Screenshot 2026-05-06 101733" src="https://github.com/user-attachments/assets/df6f3634-f1b9-485f-b2f4-f04e546be3e8" />
 
 ### The ML Music Affinity evaluation on the trained dataset provided by "maharshipandya", hugging face spotify-tracks dataset
-<img width="1857" height="880" alt="Screenshot 2026-05-06 093522" src="https://github.com/user-attachments/assets/7ad1f456-eb25-47ce-997f-89e98e6637e2" />
+<img width="1860" height="871" alt="Screenshot 2026-05-06 101813" src="https://github.com/user-attachments/assets/fce77385-48c4-487e-8250-e1f8484d4886" />
 
