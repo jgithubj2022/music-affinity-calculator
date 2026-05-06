@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Affinity Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="shell">
+    <nav class="top-bar" aria-label="Application header">
+      <div class="brand-mark">MA</div>
+      <div class="search-pill">Tune your next genre match</div>
+    </nav>
+
+    <header class="page-header">
+      <p class="eyebrow">Machine learning music discovery</p>
+      <h2>Music Affinity</h2>
+      <p class="summary">Shape a sound with tempo, energy, mood, vocals, and instrumentation. The model ranks genres by affinity and can generate a concise AI explanation.</p>
+    </header>
+
+    <section class="workspace">
+      <form method="post" class="control-panel">
+        <div class="panel-heading">
+          <h2>Build Your Sound</h2>
+          <p>Adjust the traits, then calculate your genre affinity.</p>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            <span>BPM</span>
+            <input type="number" name="bpm" min="40" max="220" step="1" value="{{ values.bpm }}" required>
+          </label>
+
+          <label>
+            <span>Energy</span>
+            <input type="number" name="energy" min="0" max="1" step="0.1" value="{{ values.energy }}" required>
+          </label>
+
+          <label>
+            <span>Danceability</span>
+            <input type="number" name="danceability" min="0" max="1" step="0.1" value="{{ values.danceability }}" required>
+          </label>
+
+          <label>
+            <span>Acousticness</span>
+            <input type="number" name="acousticness" min="0" max="1" step="0.1" value="{{ values.acousticness }}" required>
+          </label>
+
+          <label>
+            <span>Instrumentalness</span>
+            <input type="number" name="instrumentalness" min="0" max="1" step="0.1" value="{{ values.instrumentalness }}" required>
+          </label>
+
+          <label>
+            <span>Mood</span>
+            <select name="mood" required>
+              {% for option in ["energetic", "bright", "dreamy", "dark", "calm", "romantic", "hype", "balanced"] %}
+                <option value="{{ option }}" {% if values.mood == option %}selected{% endif %}>{{ option }}</option>
+              {% endfor %}
+            </select>
+          </label>
+
+          <label>
+            <span>Vocal Style</span>
+            <select name="vocals" required>
+              {% for option in ["pop vocals", "rap vocals", "soft vocals", "rock vocals", "instrumental", "soul vocals", "indie vocals"] %}
+                <option value="{{ option }}" {% if values.vocals == option %}selected{% endif %}>{{ option }}</option>
+              {% endfor %}
+            </select>
+          </label>
+
+          <label>
+            <span>Instrumentation</span>
+            <select name="instrumentation" required>
+              {% for option in ["electronic", "synth", "guitar", "bass", "piano", "acoustic"] %}
+                <option value="{{ option }}" {% if values.instrumentation == option %}selected{% endif %}>{{ option }}</option>
+              {% endfor %}
+            </select>
+          </label>
+        </div>
+
+        <label class="gemini-toggle">
+          <input type="checkbox" name="use_gemini" {% if values.use_gemini %}checked{% endif %}>
+          <span>Use Gemini explanation</span>
+        </label>
+
+        <button type="submit">Calculate Affinity</button>
+      </form>
+
+      <section class="results-panel" aria-live="polite">
+        {% if error %}
+          <div class="notice">{{ error }}</div>
+        {% endif %}
+
+        {% if predictions %}
+          <h2>Ranked Genre Matches</h2>
+          <ol class="rank-list">
+            {% for item in predictions %}
+              <li>
+                <span class="genre">{{ item.genre }}</span>
+                <span class="score">{{ item.score }}%</span>
+              </li>
+            {% endfor %}
+          </ol>
+
+          <h2>Explanation</h2>
+          <p class="explanation">{{ explanation }}</p>
+        {% else %}
+          <h2>Ready</h2>
+          <p class="empty-state">Your ranked matches will appear here after you submit the form.</p>
+        {% endif %}
+      </section>
+    </section>
+  </main>
+</body>
+</html>
