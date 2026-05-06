@@ -281,7 +281,7 @@ def describe_gemini_key() -> str:
 def build_explanation_prompt(pref: UserPreference, predictions: List[Dict[str, float]]) -> str:
     top = predictions[0]
     return f"""
-In exactly 5 words, explain this music match.
+In exactly 2 sentences use gathered percents for a unique explanation of this music match. then explain why their taste is closest to this, why others may be a bit further off.
 Genre: {top['genre']}
 Traits: {pref.mood}, {pref.instrumentation}
 """.strip()

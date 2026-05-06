@@ -43,11 +43,11 @@ body::before {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 72px 72px;
+  background-size: 100px 100px;
   mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 75%, transparent);
 }
 
-/* Animated blurred background shapes live here. Adjust size, color, and animation speed. */
+/* Animated blurred background shapes live here.*/
 .ambient {
   position: fixed;
   z-index: 0;
@@ -112,13 +112,23 @@ body::before {
   width: 54px;
   height: 54px;
   place-items: center;
-  border: 1px solid var(--line);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 50%;
-  color: #000;
-  background: var(--accent);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.45), transparent 28%);
   box-shadow: 0 0 36px var(--accent-glow);
-  font-weight: 900;
 }
+
+
+.brand-mark img {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35));
+}
+
 
 .search-pill {
   display: flex;
@@ -137,14 +147,14 @@ body::before {
   margin-bottom: 28px;
 }
 
-.eyebrow {
+/*.eyebrow {
   margin: 0 0 10px;
   color: var(--accent);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
-}
+}*/
 
 h1,
 h2,
