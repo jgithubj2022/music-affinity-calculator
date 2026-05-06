@@ -82,3 +82,12 @@ Aim for at least 150 songs total and at least 15-20 songs per genre.
 ## Project demo idea
 User enters: energetic, fast, synth, pop vocals, high danceability.
 System returns: synthpop, dance pop, EDM with affinity scores and explanation.
+
+
+## My project in action
+### Gemini's Music Affinity evaluation
+<img width="1834" height="871" alt="Screenshot 2026-05-05 204121" src="https://github.com/user-attachments/assets/4b227d07-73c4-436b-8851-d7bd14f67b57" />
+
+### The ML Music Affinity evaluation on the trained dataset provided by "maharshipandya", hugging face spotify-tracks dataset
+<img width="1770" height="858" alt="Screenshot 2026-05-05 202834" src="https://github.com/user-attachments/assets/d734fd9c-8472-4f9a-8c00-690dee45d2bb" />
+
