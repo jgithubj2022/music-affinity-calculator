@@ -8,7 +8,7 @@ A Bayesian network is possible, but it is hard because you would need to manuall
 ### What my ML model does?
 The ML model is responsible for the actual prediction. It takes the user’s music traits, such as BPM, energy, danceability, mood, vocals, and instrumentation, then compares them to patterns learned from the training dataset. It returns ranked genre matches with affinity scores.
 
-## Gemini's purpose?
+### Gemini's purpose?
 Gemini does not choose the genres or calculate the scores. It only takes the model’s top result and a few user traits, then turns that result into a short human-readable explanation. In this project, Gemini acts as an explanation layer, not the prediction engine.
 
 ## How to run
